@@ -2,20 +2,67 @@
 <html lang="en">
 
 <head>
+    <!-- Basic -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>H-1B Wage Page</title>
+    <!-- Title & Description (SEO) -->
+    <title>H-1B Wage Level Checker (LCA) | Level I–IV by Job & Location</title>
     <meta name="description"
-        content="Check wage levels (I–IV) by role, ZIP, and salary using historical prevailing wage benchmarks." />
+        content="Free H-1B Wage Level Checker. Find prevailing wage level (I–IV) based on job title, ZIP code, and salary using official benchmarks. Fast, accurate, and mobile-friendly." />
 
+    <!-- Canonical -->
+    <link rel="canonical" href="https://h1bwagepage.com/" />
+
+    <!-- Robots -->
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph (Facebook / LinkedIn) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="H-1B Wage Level Checker — Level I–IV by Job & Location" />
+    <meta property="og:description"
+        content="Check H-1B prevailing wage levels (I–IV) using job role, ZIP code, and salary. Includes wage thresholds and level guidance." />
+    <meta property="og:url" content="https://h1bwagepage.com/" />
+    <meta property="og:image" content="https://h1bwagepage.com/logo.png" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="H-1B Wage Level Checker — Level I–IV" />
+    <meta name="twitter:description"
+        content="Check H-1B wage level using job title, ZIP code, and salary. Fast and accurate." />
+    <meta name="twitter:image" content="https://h1bwagepage.com/logo.png" />
+
+    <!-- Favicons -->
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="./logo.png" />
-    <link rel="apple-touch-icon" href="./logo.png" />
+    <link rel="icon" href="/logo.png" type="image/png" />
+    <link rel="apple-touch-icon" href="/logo.png" />
+    <link rel="shortcut icon" href="/logo.png" type="image/png" />
+
+    <!-- PWA / Theme -->
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <meta name="theme-color" content="#0b1220" />
 
     <!-- Styles -->
     <link rel="stylesheet" href="./styles.css" />
-</head>  
+
+    <!-- Structured Data (Schema.org) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "H-1B Wage Level Checker",
+        "url": "https://h1bwagepage.com/",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "All",
+        "description": "Check H-1B prevailing wage level (I–IV) based on job title, ZIP code, and salary using official benchmarks.",
+        "publisher": {
+            "@type": "Person",
+            "name": "Satyam Pandey",
+            "url": "https://pandeysatyam.com/"
+        }
+    }
+    </script>
+</head>   
 
 <body>
     <!-- Header -->
@@ -25,13 +72,13 @@
                 <img src="./logo.png" alt="H-1B Wage Page logo" class="brand__logo" />
             
                 <div class="brand__text">
-                    <div class="brand__name">H-1B WAGE PAGE</div>
+                    <div class="brand__name">H-1B  WAGE  PAGE</div>
                 </div>
             </div>              
 
             <nav class="header__nav" aria-label="Site links">
                 <a class="link" href="https://pandeysatyam.com" target="_blank" rel="noopener">Creator</a>
-                <a class="link" href="https://knowledgehome.org" target="_blank" rel="noopener">Donate</a>
+                <a class="link" href="https://knowledgehome.org" target="_blank" rel="noopener">Support</a>
             </nav>
         </div>
     </header>
@@ -59,7 +106,8 @@
                     <!-- Keep dropdown hidden by default; app.js can show it when needed -->
                     <div id="roleList" class="dropdown hidden" role="listbox" aria-label="Role suggestions"></div>
                     <input id="socCode" type="hidden" />
-                    <div class="help">Select a suggestion to lock the correct SOC mapping.</div>
+                    <div class="help-tag">Please select the appropriate option to confirm your SOC mapping. If your role is not listed, please enter it below for
+                    our system to identify the closest match.</div>
                 </div>
 
                 <!-- Fallback -->
@@ -77,7 +125,7 @@
 
                 <!-- ZIP -->
                 <div class="field">
-                    <label for="zipInput">Company ZIP  (required)</label>
+                    <label for="zipInput">Company' ZIP Code  (required)</label>
                     <input id="zipInput" type="text" placeholder="e.g., 10001" inputmode="numeric" maxlength="5"
                         autocomplete="postal-code" />
                     <div id="zipMeta" class="meta" aria-live="polite"></div>
@@ -106,7 +154,7 @@
         <div class="container footer__inner">
             <div class="footer__left">
                 <div class="footer__line">
-                    Built by <a class="link" href="https://pandeysatyam.com" target="_blank" rel="noopener">Satyam
+                    Built by: <a class="link" href="https://pandeysatyam.com" target="_blank" rel="noopener">Satyam
                         Pandey</a>
                 </div>
                 <div class="footer__line">
@@ -118,8 +166,11 @@
             <div class="footer__right">
                 <div class="footer__fineprint">
                     Disclaimer: Informational only. Not legal advice. Benchmarks and mappings can be imperfect.
-                </div>
                 <div class="footer__fineprint">© <span id="year"></span></div>
+            </div>
+            <div class="footer__line">
+                <a class="link" href="faqs.html">FAQs</a>
+            </div>              
             </div>
         </div>
     </footer>
@@ -127,7 +178,7 @@
     <script>
         document.getElementById("year").textContent = new Date().getFullYear();
     </script>
-    <script src="./app.js"></script>
+    <script src="./app.js" defer></script>
 </body>
 
 </html>

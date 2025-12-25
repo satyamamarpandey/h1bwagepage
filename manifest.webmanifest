@@ -1,0 +1,15 @@
+{
+    "name": "H-1B Wage Level Checker",
+    "short_name": "H1B Wage",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#0b1220",
+    "theme_color": "#0b1220",
+    "icons": [
+        {
+            "src": "/logo.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}

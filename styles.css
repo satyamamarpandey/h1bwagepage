@@ -343,6 +343,12 @@ a {
     /* <-- increase/decrease */
 }
 
+.field .help-tag {
+    margin-top: 8px;
+    font-size: 11px;
+    color: rgba(254, 249, 103, 0.52);
+    /* <-- increase/decrease */
+}
 
 .field-error{
     padding: 4px 0;         /* adds top/bottom space around label+input+help */
@@ -709,7 +715,7 @@ input:focus {
 
 /* Bigger text inside the badge */
 .result .kv .v:nth-child(2) b {
-    font-size: 20px;
+    font-size: 10px;
     letter-spacing: .12em;
 }
 
@@ -864,6 +870,130 @@ input:focus {
     .footer__right {
         align-items: flex-start;
         text-align: left;
+    }
+}
+
+/* =========================================================
+   FAQs page (matches index theme)
+========================================================= */
+
+.faq-hero {
+    margin: 26px 0 18px;
+    display: grid;
+    gap: 10px;
+}
+
+.faq-hero h1 {
+    margin: 0;
+    letter-spacing: 0.3px;
+}
+
+/* =========================================================
+   FAQ Back Button (Improved)
+========================================================= */
+
+.faq-back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    max-width: 250px;
+    padding: 12px 18px;
+    border-radius: 999px;
+
+    font-weight: 600;
+    letter-spacing: 0.2px;
+    text-decoration: none;
+
+    color: rgba(255, 255, 255, 0.92);
+    background: linear-gradient(180deg,
+            rgba(255, 255, 255, 0.12),
+            rgba(255, 255, 255, 0.05));
+
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(6px);
+
+    transition:
+        transform 180ms ease,
+        background 180ms ease,
+        box-shadow 180ms ease;
+}
+
+.faq-back-btn:hover {
+    transform: translateY(-1px);
+    background: linear-gradient(180deg,
+            rgba(255, 255, 255, 0.18),
+            rgba(255, 255, 255, 0.08));
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+.faq-back-btn:active {
+    transform: translateY(0);
+}
+
+.faq-back-icon {
+    font-size: 1.1rem;
+    opacity: 0.85;
+}
+
+.faq-card .card__hint {
+    margin-bottom: 14px;
+}
+
+.faq-list {
+    display: grid;
+    gap: 12px;
+}
+
+/* FAQ item (details/summary accordion) */
+.faq-item {
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    border-radius: 14px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.faq-item summary {
+    cursor: pointer;
+    list-style: none;
+    padding: 14px 14px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.92);
+}
+
+.faq-item summary::-webkit-details-marker {
+    display: none;
+}
+
+/* Chevron */
+.faq-item summary {
+    position: relative;
+    padding-right: 44px;
+}
+
+.faq-item summary::after {
+    content: "▾";
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.85;
+    transition: transform 180ms ease;
+}
+
+.faq-item[open] summary::after {
+    transform: translateY(-50%) rotate(180deg);
+}
+
+.faq-body {
+    padding: 0 14px 14px;
+    color: rgba(255, 255, 255, 0.82);
+    line-height: 1.55;
+}
+
+/* Better spacing on mobile */
+@media (max-width: 720px) {
+    .faq-hero {
+        margin-top: 18px;
     }
 }
 

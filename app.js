@@ -79,10 +79,10 @@ function escapeHTML(s) {
 --------------------------- */
 function wageLevelRule(hourly, l1, l2, l3, l4) {
     if (hourly < l1) return "Not Qualified";
-    if (hourly < l2) return "I";
-    if (hourly < l3) return "II";
-    if (hourly < l4) return "III";
-    return "IV";
+    if (hourly < l2) return "Level I :  ~15% Selection Probability";
+    if (hourly < l3) return "Level II : ~31% Selection Probability";
+    if (hourly < l4) return "Level III : ~46% Selection Probability";
+    return "Level IV : ~61% Selection Probability";
 }
 
 /* ---------------------------
