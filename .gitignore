@@ -1,0 +1,50 @@
+# =========================
+# Python / Virtual Env
+# =========================
+.venv/
+venv/
+env/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# =========================
+# Local scripts (one-time use)
+# =========================
+scripts/
+*.log
+
+# =========================
+# Raw data files (do NOT publish)
+# =========================
+data/*.csv
+data/*.xlsx
+data/*.pdf
+
+# --- Allow ONLY processed data needed for site ---
+!data/roles.json
+!data/wage_index.json
+!data/zip_index.json
+!data/zip_to_area.csv
+
+# =========================
+# OS / Editor noise
+# =========================
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# =========================
+# Node / build artifacts (future-proof)
+# =========================
+node_modules/
+dist/
+build/
+
+# =========================
+# Misc
+# =========================
+*.tmp
+*.bak

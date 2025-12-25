@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>H-1B Wage Page</title>
+    <meta name="description"
+        content="Check wage levels (I–IV) by role, ZIP, and salary using historical prevailing wage benchmarks." />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="./logo.png" />
+    <link rel="apple-touch-icon" href="./logo.png" />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="./styles.css" />
+</head>  
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container header__inner">
+            <div class="header__brand">
+                <img src="./logo.png" alt="H-1B Wage Page logo" class="brand__logo" />
+            
+                <div class="brand__text">
+                    <div class="brand__name">H-1B WAGE PAGE</div>
+                </div>
+            </div>              
+
+            <nav class="header__nav" aria-label="Site links">
+                <a class="link" href="https://pandeysatyam.com" target="_blank" rel="noopener">Creator</a>
+                <a class="link" href="https://knowledgehome.org" target="_blank" rel="noopener">Donate</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Intro -->
+        <section class="intro">
+            <h1>Check your H-1B wage level in seconds.</h1>
+            <p class="help">
+                Base salary only (no bonus/stock). This is informational and not legal advice.
+            </p>
+        </section>
+
+        <!-- App Card -->
+        <section class="card" aria-labelledby="toolTitle">
+            <div class="card__title" id="toolTitle">Wage Level Checker</div>
+            <div class="card__hint">Tip: choose from the dropdown for the best match.</div>
+
+            <div class="form">
+                <!-- Role -->
+                <div class="field">
+                    <label for="roleInput">Job Category</label>
+                    <input id="roleInput" type="text"
+                        placeholder="Start typing (e.g., Data Scientist, Software Developer)…" autocomplete="off" />
+                    <!-- Keep dropdown hidden by default; app.js can show it when needed -->
+                    <div id="roleList" class="dropdown hidden" role="listbox" aria-label="Role suggestions"></div>
+                    <input id="socCode" type="hidden" />
+                    <div class="help">Select a suggestion to lock the correct SOC mapping.</div>
+                </div>
+
+                <!-- Fallback -->
+                <div class="field-error">
+                    <label for="customRoleInput">Can’t find your role?</label>
+                    <div class="row">
+                        <input id="customRoleInput" type="text"
+                            placeholder="Type a close title (e.g., ML Engineer, BI Analyst)…" />
+                        <button id="matchRoleBtn" class="btn btn--secondary" type="button">
+                            Find closest role
+                        </button>
+                    </div>
+                    <div id="matchRoleMeta" class="help" aria-live="polite"></div>
+                </div>
+
+                <!-- ZIP -->
+                <div class="field">
+                    <label for="zipInput">Company ZIP  (required)</label>
+                    <input id="zipInput" type="text" placeholder="e.g., 10001" inputmode="numeric" maxlength="5"
+                        autocomplete="postal-code" />
+                    <div id="zipMeta" class="meta" aria-live="polite"></div>
+                    <div class="help">Use the employer’s work location ZIP.</div>
+                </div>
+
+                <!-- Salary -->
+                <div class="field">
+                    <label for="salaryInput">Annual Base Salary  (required)</label>
+                    <input id="salaryInput" type="number" placeholder="e.g., $92000" inputmode="decimal" min="0"
+                        step="1000" />
+                    <div class="help">Numbers only (example: $92000). Excludes bonus/stock.</div>
+                </div>
+
+                <button id="checkBtn" class="btn" type="button">Check wage level</button>
+
+                <!-- Result -->
+                <div id="result" class="result hidden" aria-live="polite"></div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer__inner">
+            <div class="footer__left">
+                <div class="footer__line">
+                    Built by <a class="link" href="https://pandeysatyam.com" target="_blank" rel="noopener">Satyam
+                        Pandey</a>
+                </div>
+                <div class="footer__line">
+                    Support: <a class="link" href="https://knowledgehome.org" target="_blank"
+                        rel="noopener">knowledgehome.org</a>
+                </div>
+            </div>
+
+            <div class="footer__right">
+                <div class="footer__fineprint">
+                    Disclaimer: Informational only. Not legal advice. Benchmarks and mappings can be imperfect.
+                </div>
+                <div class="footer__fineprint">© <span id="year"></span></div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+    <script src="./app.js"></script>
+</body>
+
+</html>
