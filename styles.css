@@ -1105,7 +1105,9 @@ input:focus {
         align-items: center;
         /* vertical alignment fix */
     }
-
+    .btn {
+        font-size: 10px
+    }
     /* Brand */
     .header__brand {
         align-items: center;
@@ -1118,7 +1120,7 @@ input:focus {
     }
 
     .brand__name {
-        font-size: 15px;
+        font-size: 12px;
         line-height: 1.15;
         white-space: nowrap;
     }
